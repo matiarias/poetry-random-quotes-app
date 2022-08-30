@@ -24,7 +24,7 @@ const Home = () => {
 
   // ------------------------------------------------------------------------------------------------
 
-  const handleClick = () => {
+  const handleClick = (playSong) => {
     quotesApi();
     console.log(quotes);
   };
@@ -67,7 +67,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="h-screen w-full px-4 md:px-0 flex flex-col justify-center items-center gap-12 md:gap-16">
+      <div className="h-screen w-full px-4 md:px-0 flex flex-col justify-center items-center gap-12 md:gap-8">
         <div className="flex gap-12">
           <button
             onClick={handleClick}
