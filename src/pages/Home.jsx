@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../components/footer/Footer";
+import toast, { Toaster } from "react-hot-toast";
 
 const Home = () => {
   const [quotes, setQuotes] = useState("");
+
+  // ---------------------------------------------------------------------------------------------
 
   const quotesApi = async () => {
     try {
@@ -19,9 +22,31 @@ const Home = () => {
     quotesApi();
   }, []);
 
+  // ------------------------------------------------------------------------------------------------
+
   const handleClick = () => {
     quotesApi();
     console.log(quotes);
+  };
+
+  // -------------------------------------------------------------------------------------------------
+
+  const copyTextNotification = () => {
+    toast.success("Texto copiado!", {
+      duration: 2000,
+      position: "top-center",
+      style: {
+        border: "3px solid #3337",
+        padding: "12px",
+        color: "#ffffff",
+        backgroundColor: "rgba(67,33,202,0.6)",
+        fontSize: "16px",
+      },
+      iconTheme: {
+        primary: "#eeeeee",
+        secondary: "#003300",
+      },
+    });
   };
 
   const copyText = async (text) => {
@@ -35,7 +60,10 @@ const Home = () => {
 
   const handleClickCopyText = () => {
     copyText(quotes);
+    copyTextNotification();
   };
+
+  // ----------------------------------------------------------------------------------------------
 
   return (
     <>
@@ -48,6 +76,7 @@ const Home = () => {
           >
             Dame una frase
           </button>
+
           <button
             onClick={handleClickCopyText}
             type="button"
@@ -55,6 +84,7 @@ const Home = () => {
           >
             Copiar
           </button>
+          <Toaster />
         </div>
         <div className="h-auto p-4 bg-gray-900/60 rounded-lg border-2 border-indigo-800 shadow-md shadow-gray-200">
           <p className="text-white font-bold text-xl md:text-2xl">{quotes}</p>
