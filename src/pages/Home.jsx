@@ -3,9 +3,10 @@ import Footer from "../components/footer/Footer";
 
 const Home = () => {
   return (
-    <div className="min-h-screen w-full">
+    <>
+      <div className="h-screen w-full"></div>
       <Footer />
-    </div>
+    </>
   );
 };
 
