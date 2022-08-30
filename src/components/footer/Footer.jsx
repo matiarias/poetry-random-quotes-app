@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div className="absolute bottom-0 left-0 w-full h-[100px] sm:h-[70px] bg-indigo-700/50 flex flex-col justify-center items-center sm:flex-row sm:justify-center sm:items-center gap-2 sm:gap-6">
       <div className="flex gap-2 items-center">
-        <h4 className="text-black text-lg font-bold">
+        <h4 className="text-yellow-400 text-lg font-bold">
           Creado por Matias Arias
         </h4>
         <BsFillMoonStarsFill className="text-xl text-yellow-200" />
