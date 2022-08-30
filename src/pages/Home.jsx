@@ -67,7 +67,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="h-screen w-full flex flex-col justify-center items-center gap-16">
+      <div className="h-screen w-full px-4 md:px-0 flex flex-col justify-center items-center gap-12 md:gap-16">
         <div className="flex gap-12">
           <button
             onClick={handleClick}
@@ -86,8 +86,10 @@ const Home = () => {
           </button>
           <Toaster />
         </div>
-        <div className="h-auto p-4 bg-gray-900/60 rounded-lg border-2 border-indigo-800 shadow-md shadow-gray-200">
-          <p className="text-white font-bold text-xl md:text-2xl">{quotes}</p>
+        <div className="h-[150px] w-full md:h-[200px] md:max-w-[500px] p-4 bg-gray-900/60 rounded-lg border-2 border-indigo-800 shadow-md shadow-gray-200">
+          <p className="text-white font-bold text-base sm:text-xl md:text-2xl">
+            {quotes}
+          </p>
         </div>
       </div>
       <Footer />
