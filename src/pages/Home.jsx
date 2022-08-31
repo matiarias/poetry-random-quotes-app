@@ -60,7 +60,7 @@ const Home = () => {
   };
 
   const handleClickCopyText = () => {
-    copyText(quotes);
+    copyText(quotes.advice);
     copyTextNotification();
   };
 
