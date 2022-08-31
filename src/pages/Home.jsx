@@ -4,7 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
 
 const Home = () => {
-  const [quotes, setQuotes] = useState("");
+  const [quotes, setQuotes] = useState({});
 
   // -----------------------------------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ const Home = () => {
     try {
       const resp = await fetch("https://api.adviceslip.com/advice");
       const { slip } = await resp.json();
-      const { advice } = slip;
-      setQuotes(advice);
+      setQuotes(slip);
+      console.log(slip);
     } catch (error) {
       console.log(error);
     }
@@ -97,6 +97,9 @@ const Home = () => {
           </motion.button>
           <Toaster />
         </div>
+
+        {/* --------------------------------------------------------------------------------------- */}
+
         <motion.div
           variants={variants}
           initial={{
@@ -113,7 +116,7 @@ const Home = () => {
           className="h-[150px] w-full md:h-[200px] md:max-w-[500px] xl:max-w[650px] p-4 bg-gray-900/60 rounded-lg border-2 border-indigo-800 shadow-md shadow-gray-200"
         >
           <p className="text-white font-bold text-base sm:text-xl md:text-2xl">
-            {quotes}
+            {quotes.advice}
           </p>
         </motion.div>
       </div>
