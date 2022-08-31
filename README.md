@@ -14,7 +14,7 @@ For the data request i used [https://api.adviceslip.com/](https://api.adviceslip
 
 ## Link
 
-Poetry ramodn quotes site: []()
+ramdon quotes app: [https://poetry-random-quotes-app.vercel.app/](https://poetry-random-quotes-app.vercel.app/)
 
 ## Built with
 
