@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../components/footer/Footer";
 import toast, { Toaster } from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const [quotes, setQuotes] = useState("");
 
-  // ---------------------------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------------------------
 
   const quotesApi = async () => {
     try {
@@ -22,14 +23,14 @@ const Home = () => {
     quotesApi();
   }, []);
 
-  // ------------------------------------------------------------------------------------------------
+  // ------------------------------------ función button quotes ----------------------------------------
 
-  const handleClick = (playSong) => {
+  const handleClick = () => {
     quotesApi();
-    console.log(quotes);
+    // console.log(quotes);
   };
 
-  // -------------------------------------------------------------------------------------------------
+  // --------------------------- función button copiar text --------------------------------------------------
 
   const copyTextNotification = () => {
     toast.success("Texto copiado!", {
@@ -52,7 +53,7 @@ const Home = () => {
   const copyText = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
-      console.log("texto copiado");
+      // console.log("texto copiado");
     } catch (error) {
       console.log("error al copiar el texto");
     }
@@ -65,32 +66,56 @@ const Home = () => {
 
   // ----------------------------------------------------------------------------------------------
 
+  const variants = {
+    initial: {
+      x: "-200%",
+    },
+    transition: { duration: 1.5, type: "spring", bounce: "0.40" },
+    animate: { x: 0 },
+  };
+
   return (
     <>
       <div className="h-screen w-full px-4 md:px-0 flex flex-col justify-center items-center gap-12 md:gap-8">
         <div className="flex gap-12">
-          <button
+          <motion.button
+            whileTap={{ scale: 0.9 }}
             onClick={handleClick}
             type="button"
             className="p-2 md:py-2 md:px-4 bg-green-800/60 text-white rounded-lg text-base md:text-xl border-2 border-gray-500"
           >
             Dame una frase
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button
+            whileTap={{ scale: 0.9 }}
             onClick={handleClickCopyText}
             type="button"
             className="p-2 md:py-2 md:px-4 bg-yellow-500/50 text-white rounded-lg text-base md:text-xl border-2 border-gray-500"
           >
             Copiar
-          </button>
+          </motion.button>
           <Toaster />
         </div>
-        <div className="h-[150px] w-full md:h-[200px] md:max-w-[500px] p-4 bg-gray-900/60 rounded-lg border-2 border-indigo-800 shadow-md shadow-gray-200">
+        <motion.div
+          variants={variants}
+          initial={{
+            x: "-200%",
+          }}
+          transition={{
+            duration: 1.5,
+            type: "spring",
+            bounce: "0.40",
+          }}
+          animate={{
+            x: 0,
+          }}
+          className="h-[150px] w-full md:h-[200px] md:max-w-[500px] xl:max-w[650px] p-4 bg-gray-900/60 rounded-lg border-2 border-indigo-800 shadow-md shadow-gray-200"
+        >
           <p className="text-white font-bold text-base sm:text-xl md:text-2xl">
             {quotes}
           </p>
-        </div>
+        </motion.div>
       </div>
       <Footer />
     </>
