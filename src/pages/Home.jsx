@@ -68,10 +68,10 @@ const Home = () => {
 
   return (
     <>
-      <div className="h-screen w-full px-4 md:px-0 flex flex-col justify-center items-center gap-12 md:gap-8">
+      <div className="relative min-h-screen w-full px-4 md:px-0 flex flex-col justify-center items-center gap-12 md:gap-8">
         <div className="flex gap-12">
           <motion.button
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ scale: 1.1 }}
             onClick={handleClick}
             type="button"
             className="p-2 md:py-2 md:px-4 bg-green-800/60 text-white rounded-lg text-base md:text-xl border-2 border-gray-500"
@@ -80,7 +80,7 @@ const Home = () => {
           </motion.button>
 
           <motion.button
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ scale: 1.1 }}
             onClick={handleClickCopyText}
             type="button"
             className="p-2 md:py-2 md:px-4 bg-yellow-500/50 text-white rounded-lg text-base md:text-xl border-2 border-gray-500"
@@ -110,8 +110,9 @@ const Home = () => {
             {quotes.advice}
           </p>
         </motion.div>
+
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };
