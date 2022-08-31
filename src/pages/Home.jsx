@@ -13,7 +13,7 @@ const Home = () => {
       const resp = await fetch("https://api.adviceslip.com/advice");
       const { slip } = await resp.json();
       setQuotes(slip);
-      console.log(slip);
+      // console.log(slip);
     } catch (error) {
       console.log(error);
     }
@@ -66,14 +66,6 @@ const Home = () => {
 
   // ----------------------------------------------------------------------------------------------
 
-  const variants = {
-    initial: {
-      x: "-200%",
-    },
-    transition: { duration: 1.5, type: "spring", bounce: "0.40" },
-    animate: { x: 0 },
-  };
-
   return (
     <>
       <div className="h-screen w-full px-4 md:px-0 flex flex-col justify-center items-center gap-12 md:gap-8">
@@ -101,7 +93,6 @@ const Home = () => {
         {/* --------------------------------------------------------------------------------------- */}
 
         <motion.div
-          variants={variants}
           initial={{
             x: "-200%",
           }}
