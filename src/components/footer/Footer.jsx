@@ -16,13 +16,13 @@ const Footer = () => {
 
       <div className="flex gap-6">
         <a href="https://github.com/matiarias" target="_blank">
-          <FaGithub className="text-3xl hover:text-gray-100" />
+          <FaGithub className="text-4xl md:text-3xl hover:text-gray-100" />
         </a>
         <a href="https://www.linkedin.com/in/matiasarias27" target="_blank">
-          <FaLinkedinIn className="text-3xl hover:text-yellow-500" />
+          <FaLinkedinIn className="text-4xl md:text-3xl hover:text-yellow-500" />
         </a>
         <a href="https://www.instagram.com/_matiarias/?hl=es" target="_blank">
-          <FaInstagram className="text-3xl hover:text-emerald-300" />
+          <FaInstagram className="text-4xl md:text-3xl hover:text-emerald-300" />
         </a>
       </div>
     </div>
